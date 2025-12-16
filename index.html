@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ironborn Fleet - Battleship</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>⚓ Ironborn Fleet ⚓</h1>
+    <p class="motto">"What is dead may never die."</p>
+  </header>
+  <dialog id="game-dialog">
+    <div class="dialog-content">
+      <p id="game-dialog-message"></p>
+      <button id="game-dialog-close">OK</button>
+    </div>
+  </dialog>
+  <main>
+    <div class="game-layout">
+      <section id="ship-dock">
+        <h2>Prepare Your Iron Fleet</h2>
+        <div class="dock">
+          <div class="dock-controls">
+            <button id="rotate-btn" type="button">Rotate: Horizontal</button>
+            <button id="random-btn" type="button">Random Placement</button>
+          </div>
+          <div class="ship" draggable="true" data-length="2"></div>
+          <div class="ship" draggable="true" data-length="3"></div>
+          <div class="ship" draggable="true" data-length="3"></div>
+          <div class="ship" draggable="true" data-length="4"></div>
+          <div class="ship" draggable="true" data-length="5"></div>
+        </div>
+        <p class="hint">
+            Drag a ship onto your board to place it. Use <span class="battle-msg">Rotate</span> to change orientation, or 
+          <span class="battle-msg">Random Placement</span> to deploy instantly.<br>
+          <strong class="battle-msg">Once all ships are placed, the battle begins!</strong>
+        </p>
+      </section>
+      <div class="boards-area">
+        <div class="restart-area">
+          <button id="restart-btn" type="button" aria-label="Restart game">Restart Game</button>
+        </div>
+        <section class="boards">
+          <div class="board-wrap">
+            <h2>Your Fleet</h2>
+            <div id="human-board" class="board" aria-label="Your fleet board"></div>
+          </div>
+          <div class="board-wrap">
+            <h2>Enemy Fleet</h2>
+            <div id="computer-board" class="board disabled" aria-label="Enemy fleet board"></div>
+          </div>
+        </section>
+        <p id="hint" class="hint"></p>
+      </div>
+    </div>
+  </main>
+<footer>
+<p>The Odin Project - B-Beetroot - Battleship © 2025</p>
+</footer>
+<script type="module" src="game.js"></script>
+</body>
+</html>
