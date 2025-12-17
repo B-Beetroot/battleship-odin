@@ -4,6 +4,12 @@ A classic Battleship game implementation built as part of [The Odin Project](htt
 
 ---
 
+## Live Demo
+
+Play the game here: [Battleship Live Demo](https://b-beetroot.github.io/battleship-odin/)
+
+---
+
 ## Introduction
 
 This project recreates the game of **Battleship**, where players take turns attacking coordinates on each other’s boards until all ships are sunk.  
