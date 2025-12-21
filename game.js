@@ -325,12 +325,13 @@ function onComputerBoardClick(e) {
     showDialog(`You sunk the enemy's ${shipName}!`);
   }
 
-  if (result.result === "hit") {
-  return;
-  }
-
   if (computer.gameboard.allShipsSunk()) {
     showDialog("Victory! What is dead may never die, but your enemies surely did!");
+    gameStarted = false;
+    return;
+  }
+
+  if (result.result === "hit") {
     return;
   }
 
