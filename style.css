@@ -13,9 +13,9 @@
   --blood: #8b0000;
   --splash: #1a3d5d;
 
-  --cell-size: 36px;
-  --cell-gap: 4px;
-  --dock-cell-size: 24px;
+  --cell-size: 24px;
+  --cell-gap: 3px;
+  --dock-cell-size: 18px;
 }
 
 * { box-sizing: border-box; }
@@ -24,28 +24,33 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: radial-gradient(circle at top, #1c2430, #0a0b0d 80%);
+  background-color: #0a0b0d;
+  background: radial-gradient(ellipse at top, #1c2430, #0a0b0d 80%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
   color: #e6e6e6;
   font-family: 'Inter', system-ui, sans-serif;
 }
 
 header {
   text-align: center;
-  padding: 20px 16px;
+  padding: 10px 8px;
   background: #111;
   border-bottom: 2px solid var(--line);
 }
+
 header h1 {
   margin: 0;
   font-family: 'Cinzel', serif;
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   color: var(--gold);
   text-shadow: 0 0 12px rgba(212, 175, 55, 0.3);
 }
+
 header .motto {
   font-style: italic;
   color: var(--hint);
-  margin-top: 6px;
 }
 
 strong {
@@ -58,19 +63,17 @@ strong {
   opacity: 0.7;
 }
 
-
 main {
   flex: 1;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 16px;
 }
 
 .game-layout {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 10px;
 }
 
 #ship-dock {
@@ -78,6 +81,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 320px;
 }
 
 #ship-dock h2 {
@@ -88,15 +93,14 @@ main {
 }
 
 #ship-dock .dock {
-  align-items: center;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: center;
-  gap: 12px;
+  gap: 8px;
   background: #1a1a1a;
   border: 1px solid var(--line);
-  padding: 12px;
+  padding: 8px;
   border-radius: 10px;
   max-width: 220px;
 }
@@ -120,6 +124,8 @@ main {
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+  width: 100%;
+  max-width: 280px;
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -201,8 +207,14 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
 }
+
+p#hint.hint { 
+  text-align: center;
+  padding: 0 40px;
+}
+
 .board-wrap {
   text-align: center;
   display: flex;
@@ -214,7 +226,7 @@ main {
 .board-wrap h2 {
   font-family: 'Cinzel', serif;
   color: var(--gold);
-  margin: 0 0 12px;
+  margin: 0px;
 }
 
 .board {
@@ -270,31 +282,65 @@ footer {
   margin-top: auto;
 }
 
-@media (max-width: 800px) {
-  .game-layout {
-    flex-direction: column;
-    align-items: center;
+@media (min-width: 600px) {
+  :root {
+    --cell-size: 28px; 
+    --dock-cell-size: 20px; 
   }
+  header h1 { 
+    font-size: 1.9rem; 
+  }
+  .boards { 
+    flex-direction: row; 
+    justify-content: center; 
+  }
+}
+
+@media (min-width: 900px) { 
+  :root { 
+    --cell-size: 36px; 
+    --dock-cell-size: 24px; 
+    --cell-gap: 4px; } 
+  
+  .game-layout { 
+    flex-direction: row; 
+    align-items: flex-start; 
+    gap: 40px; 
+  } 
   #ship-dock {
-    flex: none;
-    width: 100%;
-    max-width: 400px;
+    max-width: 260px; 
+  } 
+  header h1 { 
+    font-size: 2.4rem; 
   }
-  .boards {
+  .boards { 
+    gap: 40px;
+  } 
+  main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 16px;
+  }
+  header {
+    padding: 20px 16px;
+  } 
+  header .motto {
+    margin-top: 6px;
+  }
+  .board-wrap h2 {
+    margin: 0 0 12px;
+  }
+  #ship-dock h2 { 
     margin-top: 30px;
-  }
-  #rotate-btn,
-  #random-btn,
-  #restart-btn {
-    width: 100%;
-    max-width: 280px;
   }
 }
 
 #game-dialog {
   border: none;
   border-radius: 12px;
-  padding: 24px 28px;
+  width: 90%; 
+  padding: 20px;
   max-width: 480px;
   background: linear-gradient(180deg, var(--bg-dark), var(--bg-deep));
   color: #e6e6e6;

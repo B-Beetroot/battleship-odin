@@ -368,7 +368,7 @@ function computerTurn() {
       currentPlayer = human;
       updateHint("Your turn. Choose a target on the enemy grid to attack.");
     }
-  }, 700);
+  }, 1000);
 }
 
 function checkStart() {
