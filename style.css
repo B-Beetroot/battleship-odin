@@ -24,14 +24,24 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #0a0b0d;
-  background: radial-gradient(ellipse at top, #1c2430, #0a0b0d 80%);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100% 100%;
+  background: none; 
+  position: relative;
   color: #e6e6e6;
   font-family: 'Inter', system-ui, sans-serif;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to bottom, #1c2430, #0a0b0d);
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
 
 header {
   text-align: center;
